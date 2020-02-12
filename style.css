@@ -1,0 +1,24 @@
+.gifcontent {
+
+    height: 50px;
+    width: 80;
+}
+
+input {
+    list-style-type: none;
+}
+
+
+img {
+    margin-top: 40px;
+    height: 200px;
+    width: 200px;
+}
+
+ul.ui-autocomplete {
+    list-style: none;
+    list-style-type: none;
+    padding: 0px;
+    margin: 0px;
+    color: red;
+}

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<script>
+    $(document).ready(function () {
+
+        $('button').click(function () {
+            var seach = $('#search').val();
+            $.get(`http://api.giphy.com/v1/gifs/search?q=" '${seach }' 
+                "&api_key=DLCVuTK6KZExOS7JoMq82bi5MaI6EbWO&limit=1`,
+                giphy)
+
+            function giphy(data) {
+                var gifs = data.data
+
+                for (i in gifs) {
+                    $('#gifcontent').append(`<img src = '${gifs[i].images.original.url}' >`)
+                }
+            }
+        })
+
+
+    });
+</script>
+
+<body>
+    <h1 class="text-center">Giphy Api</h1>
+    <div class="container ">
+        <div class="jumbotron jumbotron-fluid text-center mt-20">
+            <input type="text" id="search" placeholder="seach gif">
+            <button>Go</button>
+            <div id="gifcontent">
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
